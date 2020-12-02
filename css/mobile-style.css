@@ -1,0 +1,185 @@
+:root{
+    --vibrant-orange: #FFA345;
+    --low-contrast-orange: #F2AD73;
+    --dark-purple: #3B2747;
+    --middle-purple: #472151;
+    --base-purple: #624185;
+    --light-purple: #F4F7FF;
+    --low-contrast-purple: #E3E7F2;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    overscroll-behavior: none;
+}
+
+/* remove thedefault blue outline of inputs */
+*>button {
+    height: 44px;
+    border: none;
+    padding: 1%;
+    border-radius: 15px;
+    font-weight: 700;
+}
+
+*>input{
+    outline: none;
+    height: 44px;
+    background: var(--low-contrast-purple);
+    border: none;
+    border-radius: 15px;
+    padding: 3%;
+}
+
+label{
+    margin-left: 15px;
+}
+
+a:link, a:active, a:visited{
+    text-decoration: none;
+    color: var(--vibrant-orange);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/**************************************LOGIN PAGE************************************/
+#login-page{
+    background: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#login-intro-desktop{
+    display: none;
+}
+
+#login-left, #signup-left{
+    text-align: center;
+    padding: 10% 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+#login-left img, #signup-left img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+}
+
+#login-right{
+    padding: 20% 0;
+}
+
+#login-right form{
+    width: 80vw;
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    /* padding: 0 15%; */
+}
+
+#login-right form div>*{
+    display: block;
+}
+
+#login-right form div input{
+    width: 100%;
+}
+
+#login-right form button, #signup-form button{
+    background: var(--vibrant-orange);
+    color: white;
+    width: 100%;
+}
+
+#sign-up-link{
+    position: fixed;
+    bottom: 5vh;
+    text-align: center;
+    width: 100vw;
+}
+
+#sign-up-link>*, #log-in-link>*{
+    display: inline;
+}
+
+/**************************************SIGNUP PAGE************************************/
+#signup-page{
+    background: var(--light-purple);
+    /* height: 100vh; */
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#signup-left{
+    display: none;
+}
+
+#signup-right #signup-wrapper{
+    background: white;
+    border-radius: 30px 30px 0 0;
+    height: 90vh;
+    padding: 10%;
+}
+
+#signup-right h1{
+    text-align: center;
+    padding: 10%;
+}
+
+#signup-form{
+    width: 80vw;
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+#signup-right form div>*{
+    display: block;
+    width: 100%;
+}
+
+#signup-options{
+    width: 80vw;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    margin:auto;
+    margin-top: 10%;
+    text-align: center;
+}
+
+#signup-options>*{
+    width: 100%;
+}
+
+#signup-options button{
+    background: white;
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.15);
+}
+
+#log-in-link{
+    text-align: center;
+    margin-top: 10%;
+}

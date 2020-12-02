@@ -1,0 +1,74 @@
+@media all and (min-width: 988px){
+
+/**************************************LOGIN PAGE************************************/
+    #login-page, #signup-page{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        /* align-items: center; */
+    }
+
+    #login-intro-desktop{
+        display: block;
+        width: 30vw;
+        margin: auto;
+        margin-bottom: 2rem;
+        font-size: 1.6rem;
+        max-width: 300px;
+    }
+
+    #login-left, #signup-left{
+        background: var(--light-purple);
+        height: 100%;
+    }
+
+    #login-right{
+        padding: 15% 0;
+    }
+
+    #login-right form, #signup-right form{
+        width: 30vw;
+        max-width: 300px;
+    }
+
+    #sign-up-link{
+        position: inherit;
+        bottom: inherit;
+        text-align: center;
+        width: inherit;
+        margin-top: 2rem;
+    }
+
+/**************************************SIGNUP PAGE************************************/
+#signup-left{
+    display: block;
+}
+
+#signup-right{
+    background: white;
+    padding: 2% 0;
+}
+
+#signup-right #signup-wrapper{
+    background: inherit;
+    border-radius: inherit;
+    height: inherit;
+    padding: inherit;
+}
+
+#signup-right h1{
+    text-align: left;
+    width: 30vw;
+    max-width: 300px;
+    margin: auto;
+    padding: inherit;
+    font-size: 1.6rem;
+}
+
+#signup-options{
+    width: 30vw;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+}
