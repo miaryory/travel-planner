@@ -40,7 +40,7 @@
 
 /**************************************SIGNUP PAGE************************************/
 #signup-left{
-    display: block;
+    display: flex;
 }
 
 #signup-right{
@@ -70,5 +70,100 @@
     margin: auto;
     margin-top: 5vh;
 }
+
+#log-in-link{
+    text-align: center;
+    margin-top: 5vh;
+}
+
+/**************************************NAV BAR************************************/
+#navbar{
+    display: flex;
+    flex-direction: column;
+    width: 7vw;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    position: relative;
+    border-right: 1px solid #E0E0E0;
+}
+
+#navbar #three-navbar-icons{
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: inherit;
+    flex-grow: 2;
+    align-items: center;
+}
+
+#navbar #three-navbar-icons a{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navbar-logo{
+    margin-top: 3vh;
+    display: block;
+    flex-grow: 1;
+}
+
+.navbar-logo img{
+    width: 2rem;
+}
+
+#logout-icon{
+    display: block;
+    flex-grow: 1;
+    position: absolute;
+    bottom: 3vh;
+}
+
+#logout-icon .icon-div svg{
+    opacity: 1;
+}
+
+/**************************************DASHBOARD PAGE************************************/
+#dashboard-page{
+    background: var(--light-purple);
+    display: grid;
+    grid-template-columns: 1fr 4fr 12fr;
+}
+
+/**************************************ALL TRIPS PAGE************************************/
+#all-trips{
+    background: white;
+}
+
+#all-trips .all-trips-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+#all-trips .all-trips-cards .trip-card{
+    /* border-bottom: 1px solid #f3f1f1; */
+    box-shadow: inherit;
+    border-radius: inherit;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#all-trips .all-trips-cards .trip-card:hover{
+    background: var(--light-purple);
+}
+
+/**************************************TRIP DETAILS PAGE************************************/
+
+.desktop-trip-details{
+    display: block;
+    padding: 2rem;
+}
+
+
+
+
+
 
 }
