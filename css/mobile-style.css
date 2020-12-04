@@ -6,6 +6,7 @@
     --base-purple: #624185;
     --light-purple: #F4F7FF;
     --low-contrast-purple: #E3E7F2;
+    --red: #EB5757;
 }
 
 *{
@@ -411,6 +412,23 @@ a:hover{
     width: 1.5rem;
 }
 
+.add-step-btn{
+    background: white;
+    position: fixed;
+    bottom: 11%;
+    right: 10%;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-step-btn svg{
+    fill: var(--vibrant-orange);
+    width: 80%;
+    margin: auto;
+}
+
 /**************************************TRIP INFO PAGE************************************/
 .trip-info-modal{
     display: none;
@@ -425,7 +443,7 @@ a:hover{
 }
 
 
-.trip-info{
+.trip-info, .new-trip{
     padding: 7%;
     display: flex;
     flex-direction: column;
@@ -436,27 +454,27 @@ a:hover{
     margin:auto;
 }
 
-.trip-info .header div{
+.trip-info .header div, .new-trip .header div, .categories .header div{
     width: 100%;
 }
 
-.trip-info .header h1{
+.trip-info .header h1, .new-trip .header h1, .categories .header h1{
     margin-right: auto;
 }
 
-.trip-info .header svg{
+.trip-info .header svg, .new-trip .header svg, .categories .header svg{
     width: 2rem;
     fill: var(--dark-purple);
     margin-right: auto;
 }
 
-.trip-info-form{
+.trip-info-form, .new-trip-form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.trip-info-form div input{
+.trip-info-form div input, .new-trip-form div input{
     width: 100%;
 }
 
@@ -466,19 +484,19 @@ a:hover{
     margin-bottom: 5px;
 }
 
-.trip-info-form .trip-info-title input{
+.trip-info-title input{
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.trip-info-form .trip-info-destination div{
+.trip-info-destination div{
     display: flex;
     flex-direction: row;
     background: var(--low-contrast-purple);
     border-radius: 15px;
 }
 
-.trip-info-form .trip-info-destination div svg{
+.trip-info-destination div svg{
     width: 2rem;
     fill: var(--dark-purple);
 }
@@ -507,7 +525,7 @@ a:hover{
 
 .delete-trip-btn{
     width: 100%;
-    background: #EB5757;
+    background: var(--red);
     color: white;
     margin-bottom: 5vh;
 }
@@ -541,4 +559,186 @@ a:hover{
 #profile-page .profile-info .full-name,
 #profile-page .profile-info a{
     text-align: center;
+}
+
+/**************************************SETTINGS PAGE************************************/
+#settings-page{
+    height: 100vh;
+}
+
+#settings-page .settings-list{
+    background: var(--light-purple);
+    padding: 10%;
+    height: 100vh;
+    border-radius: 30px 30px 0 0;
+}
+
+#settings-page .settings-list .theme div,
+#settings-page .settings-list .notifications div,
+#settings-page .settings-list .language div,
+#settings-page .settings-list .currency div,
+#settings-page .settings-list .mobile-logout div,
+#settings-page .settings-list .delete-profile div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    gap: 0.5rem;
+}
+
+#settings-page .settings-list>*{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem 0;
+    max-width: 500px;
+    margin: auto;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+#settings-page .settings-list .label{
+    color: black;
+}
+
+#settings-page .settings-list svg{
+    width: 1.7rem;
+}
+
+#settings-page .settings-list .theme div p,
+#settings-page .settings-list .notifications div p{
+    width: 6vw;
+}
+
+#settings-page .settings-list .delete-profile>*{
+    color: var(--red);
+    fill: var(--red);
+}
+
+#settings-page .settings-list .terms{
+    opacity: 0.5;
+    border-bottom: none;
+}
+
+/**************************************SWITCH BTN************************************/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 2px;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #6FCF97;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #6FCF97;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/**************************************MODAL STYLING************************************/
+.modal-overlay{
+    display: none;  
+}
+
+.modal-container{
+    background: var(--light-purple);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    width: 100%;
+    height: 100vh;
+    max-width: 500px;
+    z-index: 1110;
+    overflow-y: scroll;   
+}
+
+.new-trip-modal, .categories-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1100;
+    background: var(--light-purple);
+    overflow-y: scroll; 
+}
+
+.create-trip-btn{
+    background: var(--vibrant-orange);
+    color: white;
+}
+
+/**************************************CATEGORIES MODAL************************************/
+.categories-modal .categories .all-categories{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 2rem;
+}
+
+.categories-modal .categories .all-categories div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.categories-modal .categories .all-categories div .category-icon{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+    background: var(--low-contrast-purple);
+}
+
+.categories-modal .categories .all-categories div .category-icon svg{
+    width: 1.5rem;
+    fill: black;
+    margin: auto;
 }

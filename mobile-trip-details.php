@@ -17,7 +17,7 @@
         <div class="trip-details-header">
             <div class="trip-details-title">
                 <h1>Trip title</h1>
-                <a href="#">Edit</a>
+                <a onclick="showTripInfo()">Edit</a>
             </div>
 
             <p class="trip-destination">Destination</p>
@@ -54,8 +54,16 @@
         </div>
 
         <svg class="three-dots-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path d="M10.001 7.8a2.2 2.2 0 1 0 0 4.402A2.2 2.2 0 0 0 10 7.8zm0-2.6A2.2 2.2 0 1 0 9.999.8a2.2 2.2 0 0 0 .002 4.4zm0 9.6a2.2 2.2 0 1 0 0 4.402a2.2 2.2 0 0 0 0-4.402z"/></svg>
-
+    
     </div>
 
+    <button class="add-step-btn" onclick="openNewCategoriesModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/></svg>
+    </button>
+
+    <?php require_once(__DIR__.'/components/trip-info.php') ?>
+    <?= require_once(__DIR__.'/components/categories-modal.php') ?>
+
+    <script src="js/app.js"></script>
 </body>
 </html>

@@ -5,6 +5,23 @@
 //     document.querySelector(".trip-info-modal").style.display="block";
 // }
 
+// if(screen.width < 988){
+//     let tripCards = document.querySelectorAll(".all-trip-cards .trip-card");
+
+//     tripCards.forEach(card=>{
+//         card.addEventListener("click", openTripDetails);
+//     });
+// }
+
+function openTripDetails(){
+    if(window.innerWidth < 988){
+        location.href = "./mobile-trip-details.php";
+    }
+    else{
+        location.href = "./dashboard.php";
+    }
+}
+
 function showTripInfo(){
 
     document.querySelector(".trip-info-modal").style.display="block";
@@ -75,4 +92,20 @@ function showTripInfo(){
 
 function closeTripInfo(){
     document.querySelector(".trip-info-modal").style.display="none";
+}
+
+function openNewTripModal(){
+    document.querySelector(".new-trip-modal").style.display="block";
+}
+
+function closeNewTripModal(){
+    document.querySelector(".new-trip-modal").style.display="none";
+}
+
+function openNewCategoriesModal(){
+    document.querySelector(".categories-modal").style.display="block";
+}
+
+function closeNewCategoriesModal(){
+    document.querySelector(".categories-modal").style.display="none";
 }
