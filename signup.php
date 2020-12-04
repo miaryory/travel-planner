@@ -24,10 +24,10 @@
 
         <div id="signup-wrapper">
 
-            <form id="signup-form">
+            <form id="signup-form" method="POST" onsubmit="signup()">
                 <div>
                     <label for="signup-name">Full name</label>
-                    <input type="text">
+                    <input type="text" name="signup-name">
                 </div>
                 <div>
                     <label for="signup-email">Email</label>
@@ -58,6 +58,8 @@
         </div>
     
     </div>
+
+    <script src="js/app.js"></script>
     
 </body>
 </html>

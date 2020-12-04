@@ -13,7 +13,7 @@
                 </div>
             </div>
         
-            <form class="new-trip-form">
+            <form class="new-trip-form" method="POST" onsubmit="createTrip(); return false">
         
                 <div class="trip-info-title">
                     <input name="trip-title" type="text" placeholder="Trip title">
@@ -37,9 +37,9 @@
                 </div>
             
                 <div class="trip-info-btn">
-                    <button class="add-participants-btn">Add participants</button>
-                    <button class="copy-link-btn">Copy link</button>
-                    <button class="create-trip-btn">Create</button>
+                    <button class="add-participants-btn" onclick="return false">Add participants</button>
+                    <button class="copy-link-btn" onclick="return false">Copy link</button>
+                    <button type="submit" class="create-trip-btn">Create</button>
                 </div>
 
             </form>

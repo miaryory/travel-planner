@@ -1,3 +1,12 @@
+<?php
+
+    session_start();
+
+    if( !isset($_SESSION['userid'])){
+        header('location: index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +32,7 @@
             <img src="images/profile.svg" alt="Profile picture">
         </div>
 
-        <p class="full-name">Full Name</p>
+        <p class="full-name"><?= $_SESSION['username'] ?></p>
 
         <a href="#">Edit</a>
     </div>
