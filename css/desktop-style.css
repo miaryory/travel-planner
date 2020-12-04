@@ -165,9 +165,9 @@
     transition: 0.3s;
 }
 
-#all-trips .all-trips-cards .trip-card:hover{
+/* #all-trips .all-trips-cards .trip-card .trip-card-overlay:hover{
     background: var(--light-purple);
-}
+} */
 
 /**************************************TRIP DETAILS PAGE************************************/
 

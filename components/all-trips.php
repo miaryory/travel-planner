@@ -12,8 +12,10 @@
     <?php require_once(__DIR__.'/new-trip-modal.php') ?>
 
     <div class="all-trips-cards">
+        
 
         <!-- <div class="trip-card" onclick="openTripDetails()">
+            <div class="trip-card-overlay"></div>
 
             <div class="trip-title">
                 <h1>Summer 2021</h1>

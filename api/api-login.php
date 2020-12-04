@@ -11,6 +11,7 @@ try{
         session_start();
         $_SESSION['userid'] = $row->userId;
         $_SESSION['username'] = $row->userFullname;
+        $_SESSION['tripNb'] = $row->userNumberOfTrips;
         header('location:../dashboard.php');
         exit();
     }

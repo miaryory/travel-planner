@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/tablet-style.css">
     <link rel="stylesheet" href="css/desktop-style.css">
 </head>
-<body id="dashboard-page">
+<body id="dashboard-page" onload="getTrips()">
 
     <?php require_once(__DIR__.'/components/navbar.php') ?>
     <?php require_once(__DIR__.'/components/all-trips.php') ?>
