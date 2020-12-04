@@ -57,6 +57,11 @@ a:hover{
     text-decoration: underline;
 }
 
+.active{
+    fill: var(--dark-purple);
+    opacity: 1;
+}
+
 /**************************************LOGIN PAGE************************************/
 #login-page{
     background: white;

@@ -62,7 +62,7 @@
     </button>
 
     <?php require_once(__DIR__.'/components/trip-info.php') ?>
-    <?= require_once(__DIR__.'/components/categories-modal.php') ?>
+    <?php require_once(__DIR__.'/components/categories-modal.php') ?>
 
     <script src="js/app.js"></script>
 </body>

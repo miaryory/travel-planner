@@ -13,7 +13,7 @@
     <?php require_once(__DIR__.'/components/navbar.php') ?>
     <?php require_once(__DIR__.'/components/all-trips.php') ?>
     <?php require_once(__DIR__.'/components/trip-details.php') ?>
-    <?= require_once(__DIR__.'/components/trip-info.php') ?>
+    <?php require_once(__DIR__.'/components/trip-info.php') ?>
 
     <!-- <script>
         //select the template

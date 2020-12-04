@@ -18,7 +18,7 @@ function openTripDetails(){
         location.href = "./mobile-trip-details.php";
     }
     else{
-        location.href = "./dashboard.php";
+        return;
     }
 }
 
