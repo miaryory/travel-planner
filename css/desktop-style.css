@@ -1,42 +1,42 @@
 @media all and (min-width: 988px){
 
 /**************************************LOGIN PAGE************************************/
-    #login-page, #signup-page{
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        /* align-items: center; */
-    }
+#login-page, #signup-page{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* align-items: center; */
+}
 
-    #login-intro-desktop{
-        display: block;
-        width: 30vw;
-        margin: auto;
-        margin-bottom: 2rem;
-        font-size: 1.6rem;
-        max-width: 300px;
-    }
+#login-intro-desktop{
+    display: block;
+    width: 30vw;
+    margin: auto;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    max-width: 300px;
+}
 
-    #login-left, #signup-left{
-        background: var(--light-purple);
-        height: 100%;
-    }
+#login-left, #signup-left{
+    background: var(--light-purple);
+    height: 100%;
+}
 
-    #login-right{
-        padding: 15% 0;
-    }
+#login-right{
+    padding: 15% 0;
+}
 
-    #login-right form, #signup-right form{
-        width: 30vw;
-        max-width: 300px;
-    }
+#login-right form, #signup-right form{
+    width: 30vw;
+    max-width: 300px;
+}
 
-    #sign-up-link{
-        position: inherit;
-        bottom: inherit;
-        text-align: center;
-        width: inherit;
-        margin-top: 2rem;
-    }
+#sign-up-link{
+    position: inherit;
+    bottom: inherit;
+    text-align: center;
+    width: inherit;
+    margin-top: 2rem;
+}
 
 /**************************************SIGNUP PAGE************************************/
 #signup-left{
@@ -127,10 +127,24 @@
 #dashboard-page{
     background: var(--light-purple);
     display: grid;
-    grid-template-columns: 1fr 4fr 12fr;
+    grid-template-columns: 1fr 4fr 7fr 4fr;
 }
 
 /**************************************ALL TRIPS PAGE************************************/
+.mobile-create-trip-btn{
+    display: none;
+}
+
+.desktop-create-trip-btn{
+    display: block;
+    width: 95%;
+    max-width: 500px;
+    margin: auto;
+    background: var(--vibrant-orange);
+    color: white;
+    margin-bottom: 2rem;
+}
+
 #all-trips{
     background: white;
 }
@@ -161,9 +175,35 @@
     padding: 2rem;
 }
 
+/**************************************TRIP INFOPAGE************************************/
 
+.trip-info-modal{
+    display: block;
+    position: inherit;
+}
 
+.trip-info{
+    padding: 10%;
+}
 
+.trip-info-modal .trip-info .header{
+    display: none;
+}
 
+/**************************************PROFILE PAGE************************************/
+#profile-page{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+
+#profile-page .profile-info{
+    height: fit-content;
+    width: 30vw;
+    padding: 5%;
+    margin: auto;
+    margin-top: 2rem;
+    background: white;
+    border-radius: 15px;
+}
 
 }

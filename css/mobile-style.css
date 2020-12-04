@@ -176,7 +176,7 @@ a:hover{
 
 #signup-options button{
     background: white;
-    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 #log-in-link{
@@ -238,6 +238,27 @@ a:hover{
 }
 
 /**************************************ALL TRIPS PAGE************************************/
+.desktop-create-trip-btn{
+    display: none;
+}
+
+.mobile-create-trip-btn{
+    position: fixed;
+    bottom: 11%;
+    right: 10%;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50px;
+    background: var(--vibrant-orange);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-create-trip-btn svg{
+    width: 80%;
+    margin: auto;
+    fill: white;
+}
+
 .header div{
     padding: 2rem;
     margin: auto;
@@ -257,16 +278,20 @@ a:hover{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 95%;
+    max-width: 500px;
+    margin: auto;
+    position: relative;
 }
 
 #all-trips .all-trips-cards .trip-card, .trip-step-card{
     background: white;
-    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
     border-radius: 15px;
-    width: 95%;
+    width: 100%;
     max-width: 500px;
     margin: auto;
 }
@@ -386,4 +411,134 @@ a:hover{
     width: 1.5rem;
 }
 
-/**************************************EDIT STEP PAGE************************************/
+/**************************************TRIP INFO PAGE************************************/
+.trip-info-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: var(--light-purple);
+    overflow-y: scroll;
+}
+
+
+.trip-info{
+    padding: 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    margin:auto;
+}
+
+.trip-info .header div{
+    width: 100%;
+}
+
+.trip-info .header h1{
+    margin-right: auto;
+}
+
+.trip-info .header svg{
+    width: 2rem;
+    fill: var(--dark-purple);
+    margin-right: auto;
+}
+
+.trip-info-form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.trip-info-form div input{
+    width: 100%;
+}
+
+.label{
+    font-weight: bold;
+    color: var(--base-purple);
+    margin-bottom: 5px;
+}
+
+.trip-info-form .trip-info-title input{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.trip-info-form .trip-info-destination div{
+    display: flex;
+    flex-direction: row;
+    background: var(--low-contrast-purple);
+    border-radius: 15px;
+}
+
+.trip-info-form .trip-info-destination div svg{
+    width: 2rem;
+    fill: var(--dark-purple);
+}
+
+.trip-info-form .save-trip-info-btn{
+    background: var(--base-purple);
+    color: white;
+}
+
+.trip-info .trip-participants div, .trip-info-btn{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-participants-btn{
+    width: 100%;
+    background: white;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.copy-link-btn{
+    width: 100%;
+    background: white;
+}
+
+.delete-trip-btn{
+    width: 100%;
+    background: #EB5757;
+    color: white;
+    margin-bottom: 5vh;
+}
+
+/**************************************PROFILE PAGE************************************/
+#profile-page{
+    background: var(--light-purple);
+}
+
+#profile-page .profile-info{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#profile-page .profile-info .profile-picture{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+    background: white;
+    margin: auto;
+    text-align: center;
+}
+
+#profile-page .profile-info .profile-picture img{
+    width: 3rem;
+    display: block;
+    margin: auto;
+}
+
+#profile-page .profile-info .full-name,
+#profile-page .profile-info a{
+    text-align: center;
+}
