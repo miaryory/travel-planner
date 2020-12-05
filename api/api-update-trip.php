@@ -25,23 +25,23 @@ if( strlen($_POST['trip-destination']) > 255 ){
     sendError(400, 'destination cannot be longer than 255 characters', __LINE__);
 }
 
-require_once( __DIR__.'/../private/db.php');
+// require_once( __DIR__.'/../private/db.php');
 
 try{
     //INSERT INTO trips VALUES (:tripid, :triptitle, :tripdestination, :tripdate, :tripcreatorid, :tripbudget)
-    $query = $db->prepare('UPDATE trips SET tripTitle = :triptitle, tripDestination = :tripdestination WHERE tripId = :tripId');
-    $query->bindValue(':triptitle', $_POST['trip-title']);
-    $query->bindValue(':tripdestination', $_POST['trip-destination']);
-    $query->bindValue(':tripId', $_GET['tripId']);
-    $query->execute();
+    // $query = $db->prepare('UPDATE trips SET tripTitle = :triptitle, tripDestination = :tripdestination WHERE tripId = :tripId');
+    // $query->bindValue(':triptitle', $_POST['trip-title']);
+    // $query->bindValue(':tripdestination', $_POST['trip-destination']);
+    // $query->bindValue(':tripId', $_GET['tripId']);
+    // $query->execute();
 
     // echo $iTweetId;
-    $query = $db->prepare('SELECT * FROM trips JOIN users ON trips.tripCreatorFk = users.userId WHERE tripId = :tripId LIMIT 1');
-    $query->bindValue(':tripId', $_GET['tripId']);
-    $query->execute();
-    $row = $query->fetch();
-    header('Content-Type: application/json');
-    echo json_encode($row);
+    // $query = $db->prepare('SELECT * FROM trips JOIN users ON trips.tripCreatorFk = users.userId WHERE tripId = :tripId LIMIT 1');
+    // $query->bindValue(':tripId', $_GET['tripId']);
+    // $query->execute();
+    // $row = $query->fetch();
+    // header('Content-Type: application/json');
+    // echo json_encode($row);
 }
 catch(Exception $ex){
     echo $ex;

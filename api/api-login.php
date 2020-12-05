@@ -1,21 +1,24 @@
 <?php
 
-require_once( __DIR__.'/../private/db.php');
+//access DB
+$sUsers = file_get_contents(__DIR__.'/../private/users.txt');
+$aUsers = json_decode($sUsers);
 
 try{
-    $query = $db->prepare('SELECT * FROM users WHERE userEmail = :userEmail LIMIT 1');
-    $query->bindValue(':userEmail', $_POST['login-email']);
-    $query->execute();
-    $row = $query->fetch();
-    if(password_verify($_POST['login-password'], $row->userPassword)){
-        session_start();
-        $_SESSION['userid'] = $row->userId;
-        $_SESSION['username'] = $row->userFullname;
-        $_SESSION['tripNb'] = $row->userNumberOfTrips;
-        header('location:../dashboard.php');
-        exit();
+
+    foreach( $aUsers as $aUser ){
+        if( $_POST['login-email']  == $aUser[2] && $_POST['login-password'] == password_verify($_POST['login-password'],$aUser[3]) ){
+            session_start();
+            $_SESSION['userid'] = $aUser[0];
+            $_SESSION['username'] = $aUser[1];
+            header('location:../dashboard.php');
+            exit();
+        }
+        else{
+            http_response_code(401);
+        }   
     }
-    http_response_code(401);
+    
 }
 catch(Exception $ex){
     echo $ex;

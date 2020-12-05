@@ -33,26 +33,27 @@ if( $_POST['signup-password'] !=  $_POST['signup-confirm-password'] ){
 sendError(400, 'passwords do not match', __LINE__);
 }
 
-require_once( __DIR__.'/../private/db.php');
+//access DB
+$sUsers = file_get_contents(__DIR__.'/../private/users.txt');
+$aUsers = json_decode($sUsers);
 
 try{
     //check of email is already registered
-    $query = $db->prepare('SELECT * FROM users WHERE userEmail = :email LIMIT 1');
-    $query->bindValue(':email', $_POST['signup-email']);
-    $query->execute();
-    $aRow = $query->fetch();
-    if( $aRow ){
-        sendError(500, 'email already registered', __LINE__);
+    foreach($aUsers as $aUser){
+        if($_POST['signup-email'] == $aUser[2]){
+            sendError(400, 'this email is already used', __LINE__);
+            header('location: ../signup.php'); 
+        }
     }
-    // INSERT INTO users VALUES (NULL, :user_fullname, :user_email, :user_password, :user_profile_picture_url, :user_number_of _trips)
-    $query = $db->prepare('INSERT INTO users VALUES (:id, :userfullname, :useremail, :userpassword, :userprofilepictureurl, :usernumberoftrips)');
-    $query->bindValue(':id', null);
-    $query->bindValue(':userfullname', $_POST['signup-name']);
-    $query->bindValue(':useremail', $_POST['signup-email']);
-    $query->bindValue(':userpassword', password_hash($_POST['signup-password'], PASSWORD_DEFAULT));
-    $query->bindValue(':userprofilepictureurl', "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png");
-    $query->bindValue(':usernumberoftrips', 0);
-    $query->execute();
+
+    //add user in DB
+    $aUser=[uniqid(), $_POST['signup-name'], $_POST['signup-email'], password_hash($_POST['signup-password'], PASSWORD_DEFAULT), "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png", 0];
+
+    array_push($aUsers, $aUser);
+    file_put_contents(__DIR__.'/../private/users.txt', json_encode($aUsers));
+
+    header('location: ../signup.php');
+    exit();
 }
 catch(Exception $ex){
     echo $ex;

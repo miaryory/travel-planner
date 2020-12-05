@@ -6,14 +6,12 @@ if (! isset($_SESSION['userid'])){
     sendError(400,"cannot fetch trips", __LINE__ );
 }
 
-require_once( __DIR__.'/../private/db.php');
+//access DB
+$sTrips = file_get_contents(__DIR__.'/../private/trips.txt');
+$aTrips = json_decode($sTrips);
 
 try{
-    $query = $db->prepare('SELECT * FROM trips JOIN users ON trips.tripCreatorFk = users.userId');
-    $query->execute();
-    $aRows = $query->fetchAll();
-    header('Content-Type:application/json');
-    echo json_encode($aRows);
+    echo json_encode($aTrips);
     exit();
 }
 catch(Exception $ex){

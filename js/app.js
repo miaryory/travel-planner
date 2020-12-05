@@ -3,12 +3,12 @@ async function openTripDetails(){
     let tripId = event.target.getAttribute("data-id");
     let request = await fetch('./api/api-get-single-trip.php?tripId='+tripId);
     if( request.status != 200 ){
-        alert('contact system admin');
         return;
     }
-    let jTrip = await request.json();
+    let sTrip = await request.text();
+    let jTrip = JSON.parse(sTrip);
 
-    let tripInfo = createTripInfo(jTrip.tripId, jTrip.tripTitle, jTrip.tripDestination);
+    let tripInfo = createTripInfo(jTrip[0], jTrip[1], jTrip[2], jTrip[3]);
     document.querySelector(".trip-info-modal").insertAdjacentHTML('afterbegin', tripInfo);
 
     if(window.innerWidth < 988){
@@ -24,12 +24,12 @@ async function showTripInfo(){
     let tripId = event.target.getAttribute("data-id");
     let request = await fetch('./api/api-get-single-trip.php?tripId='+tripId);
     if( request.status != 200 ){
-        alert('contact system admin');
         return;
     }
-    let jTrip = await request.json();
+    let sTrip = await request.text();
+    let jTrip = JSON.parse(sTrip);
 
-    let tripInfo = createTripInfo(jTrip.tripId, jTrip.tripTitle, jTrip.tripDestination);
+    let tripInfo = createTripInfo(jTrip[0], jTrip[1], jTrip[2], jTrip[3]);
     document.querySelector(".trip-info-modal").insertAdjacentHTML('afterbegin', tripInfo);
 
     document.querySelector(".trip-info-modal").style.display="block";
@@ -60,10 +60,8 @@ async function signup(){
     let request =  await fetch('./api/api-signup.php', {method:"POST",body:form});
 
     if( request.status != 200 ){
-      alert('contact system admin');
       return;
     }
-
 }
 
 async function login(){
@@ -88,13 +86,15 @@ async function getTrips(){
         return;
     }
 
-    let ajTrip = await request.json();
+    // let ajTrip = await request.json();
+    let sjTrip = await request.text();
+    let ajTrip = JSON.parse(sjTrip);
 
     ajTrip.forEach(jTrip=>{
-        let tripDiv = createTripDiv(jTrip.tripId, jTrip.tripTitle, jTrip.tripDestination);
+        let tripDiv = createTripDiv(jTrip[0], jTrip[1], jTrip[2]);
         document.querySelector("#all-trips .all-trips-cards").insertAdjacentHTML('afterbegin', tripDiv);
     });
-    
+
 }
 
 async function createTrip(){
@@ -102,34 +102,33 @@ async function createTrip(){
     let request = await fetch('./api/api-create-trip.php', {method:"POST", body:form});
 
     if( request.status != 200 ){
-        alert('contact system admin');
         return;
     }
+    let aTrip = await request.text();
+    let jTrip = JSON.parse(aTrip);
 
-    let jTrip = await request.json();
-
-    let tripDiv = createTripDiv(jTrip.tripId, jTrip.tripTitle, jTrip.tripDestination);
+    let tripDiv = createTripDiv(jTrip[0], jTrip[1], jTrip[2]);
     document.querySelector("#all-trips .all-trips-cards").insertAdjacentHTML('afterbegin', tripDiv);
     closeNewTripModal();
 }
 
 async function updateTrip(){
-    let tripId = event.target.getAttribute("data-id");
-    let form = new FormData(event.target);
+    // let tripId = event.target.getAttribute("data-id");
+    // let form = new FormData(event.target);
 
-    let request = await fetch('./api/api-update-trip.php?tripId='+tripId, {method: "POST", body: form});
+    // let request = await fetch('./api/api-update-trip.php?tripId='+tripId, {method: "POST", body: form});
 
-    if( request.status != 200 ){
-        alert('contact system admin');
-        return;
-    }
+    // if( request.status != 200 ){
+    //     alert('contact system admin');
+    //     return;
+    // }
 
-    let jTrip = await request.json();
+    // let jTrip = await request.json();
 
-    let tripCardOverlay = document.querySelector(".all-trips-cards").querySelector(`[data-id="${tripId}"]`);
-    let tripCard = tripCardOverlay.parentNode;
-    tripCard.querySelector(".trip-title h1").innerText = jTrip.tripTitle;
-    tripCard.querySelector(".trip-destination").innerText = jTrip.tripDestination;
+    // let tripCardOverlay = document.querySelector(".all-trips-cards").querySelector(`[data-id="${tripId}"]`);
+    // let tripCard = tripCardOverlay.parentNode;
+    // tripCard.querySelector(".trip-title h1").innerText = jTrip.tripTitle;
+    // tripCard.querySelector(".trip-destination").innerText = jTrip.tripDestination;
 
 }
 
@@ -168,7 +167,7 @@ function createTripDiv(id, title, destination){
     `;
 }
 
-function createTripInfo(id, title, destination){
+function createTripInfo(id, title, destination, date){
     return tripInfo=`
         <div class="trip-info">
 
@@ -195,7 +194,7 @@ function createTripInfo(id, title, destination){
         
                 <div class="trip-info-date">
                     <p class="label">Date</p>
-                    <input type="date" name="trip-date">
+                    <input type="date" name="trip-date" value=${date}>
                 </div>
         
                 <button type="submit" class="save-trip-info-btn">Save</button>

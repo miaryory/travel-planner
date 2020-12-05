@@ -25,25 +25,15 @@ if( strlen($_POST['trip-destination']) > 255 ){
     sendError(400, 'destination cannot be longer than 255 characters', __LINE__);
 }
 
-require_once( __DIR__.'/../private/db.php');
+//access DB
+$sTrips = file_get_contents(__DIR__.'/../private/trips.txt');
+$aTrips = json_decode($sTrips);
 
 try{
-    //INSERT INTO trips VALUES (:tripid, :triptitle, :tripdestination, :tripdate, :tripcreatorid, :tripbudget)
-    $query = $db->prepare('INSERT INTO trips VALUES (:tripid, :triptitle, :tripdestination, current_timestamp(), :tripcreatorid, :tripbudget)');
-    $query->bindValue(':tripid', null);
-    $query->bindValue(':triptitle', $_POST['trip-title']);
-    $query->bindValue(':tripdestination', $_POST['trip-destination']);
-    $query->bindValue(':tripcreatorid', $_SESSION['userid']);
-    $query->bindValue(':tripbudget', 0);
-    $query->execute();
-    $iTweetId = $db->lastInsertId();
-    // echo $iTweetId;
-    $query = $db->prepare('SELECT * FROM trips JOIN users ON trips.tripCreatorFk = users.userId  WHERE tripId = :tripId LIMIT 1');
-    $query->bindValue(':tripId', $iTweetId);
-    $query->execute();
-    $row = $query->fetch();
-    header('Content-Type: application/json');
-    echo json_encode($row);
+    $newTrip = [uniqid(), $_POST['trip-title'], $_POST['trip-destination'], $_POST['trip-date'], $_SESSION['userid'], 0];
+    array_push($aTrips, $newTrip);
+    file_put_contents(__DIR__.'/../private/trips.txt', json_encode($aTrips));
+    echo json_encode($newTrip);
 }
 catch(Exception $ex){
     echo $ex;
