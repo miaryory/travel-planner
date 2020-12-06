@@ -109,7 +109,7 @@
 }
 
 .navbar-logo img{
-    width: 2rem;
+    width: 4rem;
 }
 
 #logout-icon{
@@ -207,6 +207,7 @@
 /**************************************TRIP INFOPAGE************************************/
 
 .trip-info-modal{
+    z-index: 0;
     display: block;
     position: inherit;
 }
@@ -276,7 +277,7 @@
 
 .modal-container{
     max-height: 90vh;
-    max-width: 500px; 
+    max-width: 400px; 
 }
 
 .new-trip-modal, .categories-modal{

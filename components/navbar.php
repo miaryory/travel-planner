@@ -1,7 +1,7 @@
 <nav id="navbar">
 
     <div class="navbar-logo">
-        <img src="./images/standing.svg" alt="Logo">
+        <img src="images/logo.svg" alt="Logo">
     </div>
 
     <div id="three-navbar-icons">

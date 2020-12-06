@@ -1,4 +1,4 @@
-<div class="trip-details subpage">
+<div class="trip-details">
 
     <div class="trip-details-wrapper"></div>
 

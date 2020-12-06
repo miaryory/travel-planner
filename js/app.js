@@ -14,6 +14,13 @@ function showPage(pageTitle){
         menu.classList.remove("active")
     })
     document.querySelector("#"+pageTitle+"-menu").classList.add("active");
+
+    if(window.innerWidth < 988){
+        document.querySelector(".trip-details").style.display="none";
+    }
+    else{
+        return;
+    }
 }
 
 async function openTripDetails(){
@@ -100,7 +107,7 @@ async function login(){
     let request = await fetch('./api/api-login.php', {method:"POST", body:form});
 
     if( request.status == 200 ){
-        location.href="./dashboard.php";
+        location.href="./home.php";
      }
      else{
          return;
@@ -171,18 +178,30 @@ async function updateTrip(){
 
 function highlightCard(){
     let card = event.target.parentNode;
-    card.style.background = "#F4F7FF";
+    card.classList.add("highlight");
+    // card.style.background = "#F4F7FF";
 }
 
 function removeCardHighlight(){
     let card = event.target.parentNode;
-    card.style.background = "#ffffff";
+    card.classList.remove("highlight");
+}
+
+function activateCard(){
+    document.querySelectorAll(".card-item").forEach(card =>{
+        card.classList.remove("highlight");
+        card.classList.remove("clicked");
+    })
+
+    let card = event.target.parentNode;
+    card.classList.add("clicked");
+
 }
 
 function createTripDiv(id, title, destination, date){
     return tripDiv = `
-    <div class="trip-card">
-        <div class="trip-card-overlay" onmouseover="highlightCard()" onmouseout="removeCardHighlight()" onclick="openTripDetails()" data-id=${id}></div>
+    <div class="trip-card card-item">
+        <div class="trip-card-overlay" onmouseover="highlightCard()" onmouseout="removeCardHighlight()" onclick="openTripDetails(); activateCard()" data-id=${id}></div>
 
         <div class="trip-title">
             <h1>${title}</h1>

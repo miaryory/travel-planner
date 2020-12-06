@@ -12,8 +12,8 @@
 
     <div id="login-left">
 
-        <img src="images/standing.svg" alt="Logo">
-        <h1>App name</h1>
+        <img src="images/logo.svg" alt="Logo">
+        <h1></h1>
         <p>small description</p>
 
     </div>

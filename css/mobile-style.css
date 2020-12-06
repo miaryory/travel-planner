@@ -80,7 +80,7 @@ a:hover{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50px;
+    width: 6rem;
 }
 
 #login-right{
@@ -772,5 +772,13 @@ a:hover{
 }
 
 #navbar .active .icon-div{
+    background: var(--light-purple);
+}
+
+#all-trips .all-trips-cards .highlight{
+    background: var(--light-purple);
+}
+
+#all-trips .all-trips-cards .clicked{
     background: var(--light-purple);
 }
