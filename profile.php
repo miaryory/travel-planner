@@ -1,23 +1,4 @@
-<?php
-
-    session_start();
-
-    if( !isset($_SESSION['userid'])){
-        header('location: index.php');
-    }
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Planner</title>
-    <link rel="stylesheet" href="css/mobile-style.css">
-    <link rel="stylesheet" href="css/tablet-style.css">
-    <link rel="stylesheet" href="css/desktop-style.css">
-</head>
-<body id="profile-page">
+<div id="profile-page" class="subpage">
 
     <?php require_once(__DIR__.'/components/navbar.php') ?>
 
@@ -37,5 +18,4 @@
         <a href="#">Edit</a>
     </div>
 
-</body>
-</html>
+</div>

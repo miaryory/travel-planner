@@ -57,11 +57,6 @@ a:hover{
     text-decoration: underline;
 }
 
-.active{
-    fill: var(--dark-purple);
-    opacity: 1;
-}
-
 /**************************************LOGIN PAGE************************************/
 #login-page{
     background: white;
@@ -237,6 +232,16 @@ a:hover{
     margin: auto;
 }
 
+/**************************************ALL PAGE************************************/
+#profile-page, #settings-page, #dashboard-page, #home-page{
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+
+#profile-page, #settings-page{
+    display: none;
+}
 /**************************************DASHBOARD PAGE************************************/
 
 #dashboard-page{
@@ -359,15 +364,7 @@ a:hover{
 }
 
 /**************************************TRIP DETAILS PAGE************************************/
-#mobile-trip-details-page{
-    background: var(--light-purple);
-}
-
-.desktop-trip-details{
-    display: none;
-}
-
-#mobile-trip-details-page .trip-details-header{
+.trip-details-header{
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -378,13 +375,17 @@ a:hover{
     margin-bottom: 1rem;
 }
 
-#mobile-trip-details-page .trip-details-header .trip-details-title{
+.trip-details-header .trip-details-title{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#mobile-trip-details-page .trip-details-header .trip-details-title h1{
+.trip-details-header .trip-details-title svg{
+    width: 1rem;
+}
+
+.trip-details-header .trip-details-title h1{
     margin-right: auto;
 }
 
@@ -392,6 +393,8 @@ a:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 95%;
+    margin: auto;
 }
 
 .trip-step-card .trip-step-info{
@@ -448,7 +451,7 @@ a:hover{
 }
 
 /**************************************TRIP INFO PAGE************************************/
-.trip-info-modal{
+.trip-info-modal, .trip-details{
     display: none;
     position: fixed;
     top: 0;
@@ -759,4 +762,15 @@ a:hover{
     width: 1.5rem;
     fill: black;
     margin: auto;
+}
+
+
+/**************************************STYLING CLASSES************************************/
+#navbar .active .icon-div svg{
+    fill: var(--dark-purple);
+    opacity: 1;
+}
+
+#navbar .active .icon-div{
+    background: var(--light-purple);
 }

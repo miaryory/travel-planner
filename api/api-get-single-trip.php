@@ -2,8 +2,6 @@
 
 session_start();
 
-$_SESSION['userid']=5;
-
 if (! isset($_SESSION['userid'])){
     sendError(400,"cannot fetch trips", __LINE__ );
 }

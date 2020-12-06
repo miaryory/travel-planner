@@ -30,7 +30,7 @@ $sTrips = file_get_contents(__DIR__.'/../private/trips.txt');
 $aTrips = json_decode($sTrips);
 
 try{
-    $newTrip = [uniqid(), $_POST['trip-title'], $_POST['trip-destination'], $_POST['trip-date'], $_SESSION['userid'], 0];
+    $newTrip = [uniqid(), $_POST['trip-title'], $_POST['trip-destination'], $_POST['trip-date'] ?? date('d/m/Y'), $_SESSION['userid'], 0];
     array_push($aTrips, $newTrip);
     file_put_contents(__DIR__.'/../private/trips.txt', json_encode($aTrips));
     echo json_encode($newTrip);

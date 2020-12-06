@@ -11,7 +11,7 @@ try{
             session_start();
             $_SESSION['userid'] = $aUser[0];
             $_SESSION['username'] = $aUser[1];
-            header('location:../dashboard.php');
+            header('location: ../home.php');
             exit();
         }
         else{
