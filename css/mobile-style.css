@@ -451,7 +451,7 @@ a:hover{
 }
 
 /**************************************TRIP INFO PAGE************************************/
-.trip-info-modal, .trip-details{
+.trip-info-modal, .trip-details, .new-step-modal{
     display: none;
     position: fixed;
     top: 0;
@@ -464,7 +464,7 @@ a:hover{
 }
 
 
-.trip-info, .new-trip{
+.trip-info, .new-trip, .new-step{
     padding: 7%;
     display: flex;
     flex-direction: column;
@@ -475,27 +475,27 @@ a:hover{
     margin:auto;
 }
 
-.trip-info .header div, .new-trip .header div, .categories .header div{
+.trip-info .header div, .new-trip .header div, .categories .header div, .new-step .header div{
     width: 100%;
 }
 
-.trip-info .header h1, .new-trip .header h1, .categories .header h1{
+.trip-info .header h1, .new-trip .header h1, .categories .header h1, .new-step .header h1{
     margin-right: auto;
 }
 
-.trip-info .header svg, .new-trip .header svg, .categories .header svg{
+.trip-info .header svg, .new-trip .header svg, .categories .header svg, .new-step .header svg{
     width: 2rem;
     fill: var(--dark-purple);
     margin-right: auto;
 }
 
-.trip-info-form, .new-trip-form {
+.trip-info-form, .new-trip-form, .new-step-form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.trip-info-form div input, .new-trip-form div input{
+.trip-info-form div input, .new-trip-form div input, .new-step-form input{
     width: 100%;
 }
 
@@ -510,14 +510,14 @@ a:hover{
     font-weight: 600;
 }
 
-.trip-info-destination div{
+.trip-info-destination div, .step-destination div {
     display: flex;
     flex-direction: row;
     background: var(--low-contrast-purple);
     border-radius: 15px;
 }
 
-.trip-info-destination div svg{
+.trip-info-destination div svg, .step-destination div svg{
     width: 2rem;
     fill: var(--dark-purple);
 }
@@ -549,6 +549,14 @@ a:hover{
     background: var(--red);
     color: white;
     margin-bottom: 5vh;
+}
+
+.new-step-form .step-budget div input{
+    width: 30%;
+}
+
+.new-step-form .step-budget div>*{
+    display: inline;
 }
 
 /**************************************PROFILE PAGE************************************/
@@ -732,8 +740,13 @@ a:hover{
     overflow-y: scroll; 
 }
 
-.create-trip-btn{
+.create-trip-btn, .create-step-btn{
     background: var(--vibrant-orange);
+    color: white;
+}
+
+.save-step-btn{
+    background: var(--base-purple);
     color: white;
 }
 
@@ -756,12 +769,27 @@ a:hover{
     width: 4rem;
     border-radius: 100%;
     background: var(--low-contrast-purple);
+    cursor: pointer;
 }
 
 .categories-modal .categories .all-categories div .category-icon svg{
     width: 1.5rem;
     fill: black;
     margin: auto;
+}
+
+.trip-step-card a{
+    position: relative;
+}
+
+.trip-step-card a .edit-step-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 120;
 }
 
 

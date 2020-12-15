@@ -141,7 +141,7 @@
 #dashboard-page{
     /* background: var(--light-purple); */
     display: grid;
-    grid-template-columns:  1fr 2fr 1fr;
+    grid-template-columns:  2fr 3fr 3fr;
 }
 
 /**************************************ALL TRIPS PAGE************************************/
@@ -280,7 +280,7 @@
     max-width: 400px; 
 }
 
-.new-trip-modal, .categories-modal{
+.new-trip-modal, .categories-modal, .new-step-modal{
     display: none;
     background: transparent;
 }
