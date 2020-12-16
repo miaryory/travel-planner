@@ -38,6 +38,15 @@
     margin-top: 2rem;
 }
 
+.front-page-illustration{
+    width: 80%;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7rem;
+}
+
 /**************************************SIGNUP PAGE************************************/
 #signup-left{
     display: flex;
@@ -141,7 +150,7 @@
 #dashboard-page{
     /* background: var(--light-purple); */
     display: grid;
-    grid-template-columns:  2fr 3fr 3fr;
+    grid-template-columns:  2fr 3fr 2fr;
 }
 
 /**************************************ALL TRIPS PAGE************************************/
@@ -190,6 +199,7 @@
     display: block;
     position: inherit;
     padding: 2rem;
+    height: 100vh;
 }
 
 .trip-details-header, .trip-details #navbar{
@@ -200,7 +210,7 @@
     position: inherit;
     bottom: inherit;
     right: inherit;
-    display: block;
+    display: none;
     margin: auto;
 }
 
@@ -229,11 +239,26 @@
 #profile-page .profile-info{
     height: fit-content;
     width: 30vw;
-    padding: 5%;
+    padding: 10%;
     margin: auto;
     margin-top: 2rem;
     background: white;
     border-radius: 15px;
+}
+
+.profile-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left right";
+    align-items: center;
+}
+
+.profile-wrapper .profile-info{
+    grid-area: right;
+}
+
+.profile-wrapper .calendar{
+    grid-area: left;
 }
 
 /**************************************SETTINGS PAGE************************************/
@@ -301,6 +326,12 @@
 
 .categories-modal .modal-container{
     height: fit-content;
+}
+
+/**************************************CALENDAR************************************/
+
+.calendar{
+    width: 80%;
 }
 
 

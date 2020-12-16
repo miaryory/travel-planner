@@ -12,15 +12,16 @@
 
     <div id="login-left">
 
-        <img src="images/logo.svg" alt="Logo">
+        <img class="logo" src="images/logo.svg" alt="Logo">
         <h1></h1>
-        <p>small description</p>
+        <p>plan where to spend you future trip</p>
+        <img class="front-page-illustration" src="images/front-page-illust.svg" alt="Illustration">
 
     </div>
 
     <div id="login-right">
         
-        <h1 id="login-intro-desktop">Log in to your account and start planning your future trips.</h1>
+        <h1 id="login-intro-desktop">Log in to your account and start planning.</h1>
 
         <form id="login-form" method="POST" onsubmit="login(); return false">
             <div>

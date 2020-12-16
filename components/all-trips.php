@@ -3,7 +3,7 @@
     <div class="header">
         <div>
             <h1>All trips</h1>
-            <p>(3)</p>
+            <p>0</p>
         </div>
     </div>
 

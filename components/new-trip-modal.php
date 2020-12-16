@@ -13,7 +13,7 @@
                 </div>
             </div>
         
-            <form class="new-trip-form" method="POST" onsubmit="createTrip(); return false">
+            <form class="new-trip-form" id="new-trip-form-id" method="POST" onsubmit="createTrip(); return false">
         
                 <div class="trip-info-title">
                     <input name="trip-title" type="text" placeholder="Trip title">

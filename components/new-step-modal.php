@@ -13,7 +13,7 @@
                 </div>
             </div>
         
-            <form class="new-step-form" method="POST" onsubmit="return false">
+            <form class="new-step-form" id="step-form" method="POST" onsubmit="return false">
         
                 <div class="step-budget">
                     <p class="label">Budget</p>

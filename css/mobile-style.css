@@ -33,6 +33,7 @@ html, body{
     padding: 1%;
     border-radius: 15px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 *>input{
@@ -76,7 +77,7 @@ a:hover{
     gap: 2vh;
 }
 
-#login-left img, #signup-left img{
+#login-left .logo, #signup-left .logo{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -120,6 +121,16 @@ a:hover{
 
 #sign-up-link>*, #log-in-link>*{
     display: inline;
+}
+
+.front-page-illustration{
+    display: none;
+}
+
+.error{
+    margin-left: 15px;
+    font-size: 13px;
+    color: var(--red);
 }
 
 /**************************************SIGNUP PAGE************************************/
@@ -180,9 +191,17 @@ a:hover{
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+#signup-options button>*{
+    display: inline;
+}
+
 #log-in-link{
     text-align: center;
     margin-top: 10%;
+}
+
+.some-icon{
+    width: 1rem;
 }
 
 /**************************************NAV BAR************************************/
@@ -434,7 +453,8 @@ a:hover{
 }
 
 .add-step-btn{
-    background: white;
+    display: none;
+    background: var(--base-purple);
     position: fixed;
     bottom: 11%;
     right: 10%;
@@ -445,7 +465,7 @@ a:hover{
 }
 
 .add-step-btn svg{
-    fill: var(--vibrant-orange);
+    fill: white;
     width: 80%;
     margin: auto;
 }
@@ -463,6 +483,9 @@ a:hover{
     overflow-y: scroll;
 }
 
+.trip-details{
+    padding-bottom: 10vh;
+}
 
 .trip-info, .new-trip, .new-step{
     padding: 7%;
@@ -562,6 +585,8 @@ a:hover{
 /**************************************PROFILE PAGE************************************/
 #profile-page{
     background: var(--light-purple);
+    height: 100vh;
+    padding-bottom: 15vh;
 }
 
 #profile-page .profile-info{
@@ -810,3 +835,95 @@ a:hover{
 #all-trips .all-trips-cards .clicked{
     background: var(--light-purple);
 }
+
+/**************************************CALENDAR************************************/
+
+.calendar{
+    width: 90%;
+    margin: auto;
+    margin-top: 3rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.month {
+    padding: 5%;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    background: var(--dark-purple);
+    text-align: center;
+  }
+  
+  .month ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .month .prev {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .month .next {
+    float: right;
+    padding-top: 10px;
+  }
+  
+  .weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: white;
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+  }
+  
+  .days {
+    padding: 10px 0;
+    background: white;
+    margin: 0;
+    border-radius: 0px 0px 15px 15px;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+  }
+  
+  .days li .active {
+    padding: 5px;
+    border-radius: 15px;
+    background: var(--vibrant-orange);
+    color: white !important
+  }
+  
+  /* Add media queries for smaller screens */
+  @media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+  }
+  
+  @media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+  }
+  
+  @media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+  }

@@ -24,6 +24,12 @@ function showPage(pageTitle){
 }
 
 async function openTripDetails(){
+    document.querySelector(".add-step-btn").style.display="block";
+    // let myDiv = document.getElementById("trip-details-container");
+    // myDiv.scrollTop = myDiv.scrollHeight;
+    let btn = document.querySelector(".trip-details #step-btn");
+    btn.scrollIntoView();
+
     document.querySelector(".trip-info-modal").innerHTML="";
     let tripId = event.target.getAttribute("data-id");
     let request = await fetch('./api/api-get-single-trip.php?tripId='+tripId);
@@ -52,16 +58,12 @@ async function openTripDetails(){
 }
 
 async function openTripDetailsMobile(tripId, title, destination, date){
-
     document.querySelector(".trip-details .trip-details-header .trip-details-title h1").innerText = title;
     document.querySelector(".trip-details .trip-details-header .trip-details-title a").setAttribute("data-id", tripId);
     document.querySelector(".trip-details .trip-details-header .trip-destination").innerText = destination;
     document.querySelector(".trip-details .trip-details-header .trip-date").innerText = date;
-
-    // document.querySelector(".trip-details-wrapper").innerHTML="";
-    // let tripStep = createTripStep();
-    // document.querySelector(".trip-details-wrapper").insertAdjacentHTML('afterbegin', tripStep);
     document.querySelector(".trip-details").style.display="block";
+    document.querySelector(".add-step-btn").style.display="block";
 }
 
 async function showTripInfo(){
@@ -86,6 +88,7 @@ function closeTripInfo(){
 
 function openNewTripModal(){
     document.querySelector(".new-trip-modal").style.display="block";
+    document.querySelector("#new-trip-form-id").reset();
 }
 
 function closeNewTripModal(){
@@ -106,6 +109,7 @@ function closeNewStepModal(){
 
 function openNewCategoriesModal(){
     document.querySelector(".categories-modal").style.display="block";
+    document.querySelector(".new-step-modal #step-form").reset();
 }
 
 function closeNewCategoriesModal(){
@@ -115,26 +119,32 @@ function closeNewCategoriesModal(){
 async function signup(){
     let form = new FormData(event.target);
     let request =  await fetch('./api/api-signup.php', {method:"POST",body:form});
-
+    let response = await request.text();
+    let jResponse = JSON.parse(response);
+    
     if( request.status != 200 ){
-      return;
+        let element = jResponse.element+"-error-message";
+        document.querySelector("#signup-page ."+element).innerText = jResponse.message;
+        return;
     }
+    alert(jResponse.message);
+    document.querySelector("#signup-form").reset();
 }
 
 async function login(){
     let form = new FormData(event.target);
     let request = await fetch('./api/api-login.php', {method:"POST", body:form});
-
     if( request.status == 200 ){
         location.href="./home.php";
      }
-     else{
+     else{erySelector("#login-page ."+element).innerText = jResponse.message;
          return;
      }
 }
 
 async function getTrips(){
     document.querySelector("#all-trips .all-trips-cards").innerHTML="";
+    let nbOfTrips=0;
 
     let request = await fetch('./api/api-get-all-trips.php');
 
@@ -153,7 +163,10 @@ async function getTrips(){
         let date = d.getDate()+"/"+month+"/"+d.getFullYear();
         let tripDiv = createTripDiv(jTrip[0], jTrip[1], jTrip[2], date);
         document.querySelector("#all-trips .all-trips-cards").insertAdjacentHTML('afterbegin', tripDiv);
+        nbOfTrips++;
     });
+
+    document.querySelector("#all-trips .header p").innerText = "("+nbOfTrips+")";
 
 }
 
@@ -298,6 +311,22 @@ async function updateStep(){
     stepCard.querySelector(".trip-step-info .trip-date").innerText = aStep[4];
 }
 
+async function deleteTrip(){
+    let tripId = event.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.getAttribute('data-id');
+    let form = new FormData();
+    form.append('tripId', tripId);
+
+    let request = await fetch('./api/api-delete-trip.php', {method:"POST", body:form});
+    if( request.status != 200 ){
+        return;
+    }
+
+    let tripCard = document.querySelector(".trip-card").querySelector(`[data-id="${tripId}"]`);
+    tripCard.parentNode.remove();
+    location.reload();
+
+}
+
 function createTripDiv(id, title, destination, date){
     return tripDiv = `
     <div class="trip-card card-item">
@@ -372,7 +401,7 @@ function createTripInfo(id, title, destination, date){
             <div class="trip-info-btn">
                 <button class="add-participants-btn">Add participants</button>
                 <button class="copy-link-btn">Copy link</button>
-                <button class="delete-trip-btn">Delete trip</button>
+                <button type="submit" onclick="deleteTrip()" class="delete-trip-btn">Delete trip</button>
             </div>
         
         </div>
